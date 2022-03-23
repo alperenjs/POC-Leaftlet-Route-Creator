@@ -35,16 +35,31 @@ function addRoute(coordinates) {
     control.setWaypoints(coordinates)
 }
 
+function addMarker() { //adding marker popup info
+    coordinates.forEach((coordinate, index) => {
+        let marker = L.marker([coordinate.lat, coordinate.lng]).addTo(map);
+        marker.bindPopup(` ${index + 1}. Rota Ziyareti`).openPopup();
+    });
+}
+addMarker();
+
+//onmarker hover
+// var marker = new L.marker([39.925533, 32.86628]).addTo(map).on('mouseover', onClick);
+//     marker.key = "marker-1";
+//     function onClick(e) {
+//     console.log(this.key); // i can expect my keys here
+// }
+
 //TEST ACTIONS
 
-setTimeout(() => {
-    coordinates.push(L.latLng(37.910000, 40.240002))
-}, 500);
+// setTimeout(() => {
+//     coordinates.push(L.latLng(37.910000, 40.240002))
+// }, 500);
 
-setTimeout(() => {
-    clearRoutes()
-}, 1500);
+// setTimeout(() => {
+//     clearRoutes()
+// }, 1500);
 
-setTimeout(() => {
-    addRoute(coordinates)
-}, 2500);
+// setTimeout(() => {
+//     addRoute(coordinates)
+// }, 2500);
