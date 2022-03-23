@@ -31,7 +31,7 @@ function clearRoutes() {
     control.spliceWaypoints(0, control.getWaypoints().length)
 }
 
-function addRoute() {
+function addRoute(coordinates) {
     control.setWaypoints(coordinates)
 }
 
@@ -46,5 +46,5 @@ setTimeout(() => {
 }, 1500);
 
 setTimeout(() => {
-    addRoute()
+    addRoute(coordinates)
 }, 2500);
