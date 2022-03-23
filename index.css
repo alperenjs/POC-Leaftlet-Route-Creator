@@ -16,10 +16,24 @@ body {
     position: absolute;
     top: 0;
     right: 0;
-    width: 250px;
+    width: 300px;
     height: 100%;
-    border: 2px solid gray;
+    -webkit-box-shadow: -5px 0px 11px -1px rgba(0, 0, 0, 0.36);
+    box-shadow: -5px 0px 11px -1px rgba(0, 0, 0, 0.36);
     background-color: rgba(211, 211, 211, 0.405);
     z-index: 1001;
     pointer-events: inherit;
+}
+
+.controls .card {
+    height: 100%;
+}
+
+ul.personel-list {
+    height: 75%;
+    overflow-y: auto;
+}
+
+.li-personel {
+    cursor: pointer;
 }

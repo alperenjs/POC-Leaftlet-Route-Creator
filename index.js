@@ -1,17 +1,17 @@
 
-var map = L.map('leafletMap');
+let map = L.map('leafletMap');
 
 L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(map);
 
-var coordinates = [
+let coordinates = [
     L.latLng(39.925533, 32.866287),
     L.latLng(38.626995, 34.719975),
     L.latLng(39.750359, 37.015598),
 ]
 
-var lineColors = [{ color: 'black', opacity: 0.15, weight: 9 }, { color: 'white', opacity: 0.8, weight: 6 }, { color: 'red', opacity: 1, weight: 2 }];
+let lineStyles = [{ color: 'black', opacity: 0, weight: 9 }, { color: 'white', opacity: 0, weight: 6 }, { color: 'red', opacity: 0, weight: 2 }];
 
 function renderMap() {
     return L.Routing.control({
@@ -21,7 +21,7 @@ function renderMap() {
         showAlternatives: false,
         show: false,
         lineOptions: {
-            styles: lineColors
+            styles: lineStyles
         },
         waypoints: coordinates
     }).addTo(map);
@@ -32,14 +32,14 @@ control = renderMap();
 //start changing line color example
 // setTimeout(() => {
 //     clearRoutes();
-//     lineColors = [{ color: 'green', opacity: 0.15, weight: 9 }, { color: 'purple', opacity: 0.8, weight: 6 }, { color: 'white', opacity: 1, weight: 2 }];
+//     lineStyles = [{ color: 'green', opacity: 0.15, weight: 9 }, { color: 'purple', opacity: 0.8, weight: 6 }, { color: 'white', opacity: 1, weight: 2 }];
 // }, 1000);
 
 
 // setTimeout(() => {
 //     renderMap();
 // }, 1500);
-//end changing line color example
+// end changing line color example
 
 
 function clearRoutes() {
@@ -80,7 +80,14 @@ addMarker();
 // }, 2500);
 
 
-document.getElementById("btn").onclick = function () {
-    alert("hello");
-    return false;
-};
+//LOGIC
+function selectPersonel(id) {
+    let personels = document.getElementsByClassName("li-personel")
+
+    for (let i = 0; i < personels.length; i++) {
+        personels[i].classList.remove('active')
+    }
+
+    document.getElementById(id).classList.add("active")
+    console.log("seçilen personel", id)
+}
